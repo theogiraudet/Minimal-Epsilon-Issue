@@ -1,0 +1,14 @@
+@GenModel(
+    bundleManifest="false",
+    modelDirectory="src/main/java-gen",
+    complianceLevel="17"
+)
+package net.gunivers.dispenser.model
+
+class User {
+    String name
+
+    op String sayHello(User user) {
+        "Hello " + user.name
+    }
+}

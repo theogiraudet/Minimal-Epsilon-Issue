@@ -1,0 +1,15 @@
+@namespace(uri="model", prefix="")
+package model;
+
+mapentry String2String : String -> String;
+
+class Block {
+    attr String ~id;
+    attr BlockState[*] properties;
+    attr String2String defaultProperties;
+}
+
+class BlockState {
+    attr String ~id;
+    attr String[+] values;
+}
