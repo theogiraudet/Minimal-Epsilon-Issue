@@ -1,0 +1,6 @@
+rule A2B
+    transform a : A!A
+    to        b : B!B {
+
+    a.name = b.name;
+}

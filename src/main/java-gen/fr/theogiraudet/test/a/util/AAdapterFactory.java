@@ -1,8 +1,8 @@
 /**
  */
-package net.gunivers.dispenser.model.util;
+package fr.theogiraudet.test.a.util;
 
-import net.gunivers.dispenser.model.*;
+import fr.theogiraudet.test.a.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,17 +16,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see net.gunivers.dispenser.model.ModelPackage
+ * @see fr.theogiraudet.test.a.APackage
  * @generated
  */
-public class ModelAdapterFactory extends AdapterFactoryImpl {
+public class AAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ModelPackage modelPackage;
+	protected static APackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +34,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelAdapterFactory() {
+	public AAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ModelPackage.eINSTANCE;
+			modelPackage = APackage.eINSTANCE;
 		}
 	}
 
@@ -65,11 +65,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch =
-		new ModelSwitch<Adapter>() {
+	protected ASwitch<Adapter> modelSwitch =
+		new ASwitch<Adapter>() {
 			@Override
-			public Adapter caseUser(User object) {
-				return createUserAdapter();
+			public Adapter caseA(A object) {
+				return createAAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,16 +92,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.gunivers.dispenser.model.User <em>User</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.theogiraudet.test.a.A <em>A</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.gunivers.dispenser.model.User
+	 * @see fr.theogiraudet.test.a.A
 	 * @generated
 	 */
-	public Adapter createUserAdapter() {
+	public Adapter createAAdapter() {
 		return null;
 	}
 
@@ -117,4 +117,4 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ModelAdapterFactory
+} //AAdapterFactory

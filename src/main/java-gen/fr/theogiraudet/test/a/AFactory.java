@@ -1,6 +1,6 @@
 /**
  */
-package net.gunivers.dispenser.model;
+package fr.theogiraudet.test.a;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,26 +9,26 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see net.gunivers.dispenser.model.ModelPackage
+ * @see fr.theogiraudet.test.a.APackage
  * @generated
  */
-public interface ModelFactory extends EFactory {
+public interface AFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ModelFactory eINSTANCE = net.gunivers.dispenser.model.impl.ModelFactoryImpl.init();
+	AFactory eINSTANCE = fr.theogiraudet.test.a.impl.AFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>User</em>'.
+	 * Returns a new object of class '<em>A</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>User</em>'.
+	 * @return a new object of class '<em>A</em>'.
 	 * @generated
 	 */
-	User createUser();
+	A createA();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -37,6 +37,6 @@ public interface ModelFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	ModelPackage getModelPackage();
+	APackage getAPackage();
 
-} //ModelFactory
+} //AFactory

@@ -1,8 +1,8 @@
 /**
  */
-package net.gunivers.dispenser.model.impl;
+package fr.theogiraudet.test.b.impl;
 
-import net.gunivers.dispenser.model.*;
+import fr.theogiraudet.test.b.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
+public class BFactoryImpl extends EFactoryImpl implements BFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ModelFactory init() {
+	public static BFactory init() {
 		try {
-			ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory(ModelPackage.eNS_URI);
-			if (theModelFactory != null) {
-				return theModelFactory;
+			BFactory theBFactory = (BFactory)EPackage.Registry.INSTANCE.getEFactory(BPackage.eNS_URI);
+			if (theBFactory != null) {
+				return theBFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new ModelFactoryImpl();
+		return new BFactoryImpl();
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelFactoryImpl() {
+	public BFactoryImpl() {
 		super();
 	}
 
@@ -56,7 +56,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ModelPackage.USER: return createUser();
+			case BPackage.B: return createB();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -67,9 +67,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User createUser() {
-		UserImpl user = new UserImpl();
-		return user;
+	public B createB() {
+		BImpl b = new BImpl();
+		return b;
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelPackage getModelPackage() {
-		return (ModelPackage)getEPackage();
+	public BPackage getBPackage() {
+		return (BPackage)getEPackage();
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static ModelPackage getPackage() {
-		return ModelPackage.eINSTANCE;
+	public static BPackage getPackage() {
+		return BPackage.eINSTANCE;
 	}
 
-} //ModelFactoryImpl
+} //BFactoryImpl

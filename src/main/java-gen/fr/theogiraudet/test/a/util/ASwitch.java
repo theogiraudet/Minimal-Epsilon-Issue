@@ -1,8 +1,8 @@
 /**
  */
-package net.gunivers.dispenser.model.util;
+package fr.theogiraudet.test.a.util;
 
-import net.gunivers.dispenser.model.*;
+import fr.theogiraudet.test.a.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,17 +19,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see net.gunivers.dispenser.model.ModelPackage
+ * @see fr.theogiraudet.test.a.APackage
  * @generated
  */
-public class ModelSwitch<T> extends Switch<T> {
+public class ASwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ModelPackage modelPackage;
+	protected static APackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -37,9 +37,9 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelSwitch() {
+	public ASwitch() {
 		if (modelPackage == null) {
-			modelPackage = ModelPackage.eINSTANCE;
+			modelPackage = APackage.eINSTANCE;
 		}
 	}
 
@@ -66,9 +66,9 @@ public class ModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ModelPackage.USER: {
-				User user = (User)theEObject;
-				T result = caseUser(user);
+			case APackage.A: {
+				A a = (A)theEObject;
+				T result = caseA(a);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -77,17 +77,17 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>User</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>A</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>User</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>A</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUser(User object) {
+	public T caseA(A object) {
 		return null;
 	}
 
@@ -107,4 +107,4 @@ public class ModelSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //ModelSwitch
+} //ASwitch

@@ -1,6 +1,8 @@
 /**
  */
-package sample.model.util;
+package fr.theogiraudet.test.b.util;
+
+import fr.theogiraudet.test.b.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,24 +11,22 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import sample.model.*;
-
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see sample.model.ModelPackage
+ * @see fr.theogiraudet.test.b.BPackage
  * @generated
  */
-public class ModelAdapterFactory extends AdapterFactoryImpl {
+public class BAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ModelPackage modelPackage;
+	protected static BPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +34,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelAdapterFactory() {
+	public BAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ModelPackage.eINSTANCE;
+			modelPackage = BPackage.eINSTANCE;
 		}
 	}
 
@@ -65,11 +65,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch =
-		new ModelSwitch<Adapter>() {
+	protected BSwitch<Adapter> modelSwitch =
+		new BSwitch<Adapter>() {
 			@Override
-			public Adapter caseUser(User object) {
-				return createUserAdapter();
+			public Adapter caseB(B object) {
+				return createBAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,16 +92,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link sample.model.User <em>User</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.theogiraudet.test.b.B <em>B</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see sample.model.User
+	 * @see fr.theogiraudet.test.b.B
 	 * @generated
 	 */
-	public Adapter createUserAdapter() {
+	public Adapter createBAdapter() {
 		return null;
 	}
 
@@ -117,4 +117,4 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ModelAdapterFactory
+} //BAdapterFactory

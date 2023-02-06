@@ -1,15 +1,11 @@
 /**
  */
-package net.gunivers.dispenser.model.impl;
+package fr.theogiraudet.test.a.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
-import net.gunivers.dispenser.model.ModelPackage;
-import net.gunivers.dispenser.model.User;
+import fr.theogiraudet.test.a.A;
+import fr.theogiraudet.test.a.APackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -18,18 +14,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>User</b></em>'.
+ * An implementation of the model object '<em><b>A</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link net.gunivers.dispenser.model.impl.UserImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.theogiraudet.test.a.impl.AImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UserImpl extends MinimalEObjectImpl.Container implements User {
+public class AImpl extends MinimalEObjectImpl.Container implements A {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +51,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UserImpl() {
+	protected AImpl() {
 		super();
 	}
 
@@ -66,7 +62,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.USER;
+		return APackage.Literals.A;
 	}
 
 	/**
@@ -87,17 +83,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.USER__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String sayHello(final User user) {
-		String _name = user.getName();
-		return ("Hello " + _name);
+			eNotify(new ENotificationImpl(this, Notification.SET, APackage.A__NAME, oldName, name));
 	}
 
 	/**
@@ -108,7 +94,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.USER__NAME:
+			case APackage.A__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -122,7 +108,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.USER__NAME:
+			case APackage.A__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -137,7 +123,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.USER__NAME:
+			case APackage.A__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -152,24 +138,10 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.USER__NAME:
+			case APackage.A__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ModelPackage.USER___SAY_HELLO__USER:
-				return sayHello((User)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -188,4 +160,4 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		return result.toString();
 	}
 
-} //UserImpl
+} //AImpl

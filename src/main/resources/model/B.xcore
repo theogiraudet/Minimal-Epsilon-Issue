@@ -1,0 +1,14 @@
+@GenModel(
+    bundleManifest="false",
+    modelDirectory="src/main/java-gen",
+    complianceLevel="17"
+)
+
+package fr.theogiraudet.test.b
+
+class B {
+    String name
+}
+
+
+

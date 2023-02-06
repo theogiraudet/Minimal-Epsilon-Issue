@@ -1,14 +1,12 @@
 /**
  */
-package net.gunivers.dispenser.model.impl;
+package fr.theogiraudet.test.b.impl;
 
-import net.gunivers.dispenser.model.ModelFactory;
-import net.gunivers.dispenser.model.ModelPackage;
-import net.gunivers.dispenser.model.User;
+import fr.theogiraudet.test.b.BFactory;
+import fr.theogiraudet.test.b.BPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 
@@ -20,13 +18,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
+public class BPackageImpl extends EPackageImpl implements BPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass userEClass = null;
+	private EClass bEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -39,14 +37,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see net.gunivers.dispenser.model.ModelPackage#eNS_URI
+	 * @see fr.theogiraudet.test.b.BPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ModelPackageImpl() {
-		super(eNS_URI, ModelFactory.eINSTANCE);
+	private BPackageImpl() {
+		super(eNS_URI, BFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,7 +54,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 *
-	 * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link BPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,12 +63,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ModelPackage init() {
-		if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+	public static BPackage init() {
+		if (isInited) return (BPackage)EPackage.Registry.INSTANCE.getEPackage(BPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredModelPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		ModelPackageImpl theModelPackage = registeredModelPackage instanceof ModelPackageImpl ? (ModelPackageImpl)registeredModelPackage : new ModelPackageImpl();
+		Object registeredBPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		BPackageImpl theBPackage = registeredBPackage instanceof BPackageImpl ? (BPackageImpl)registeredBPackage : new BPackageImpl();
 
 		isInited = true;
 
@@ -79,17 +76,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theModelPackage.createPackageContents();
+		theBPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theModelPackage.initializePackageContents();
+		theBPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theModelPackage.freeze();
+		theBPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, theModelPackage);
-		return theModelPackage;
+		EPackage.Registry.INSTANCE.put(BPackage.eNS_URI, theBPackage);
+		return theBPackage;
 	}
 
 	/**
@@ -97,8 +94,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUser() {
-		return userEClass;
+	public EClass getB() {
+		return bEClass;
 	}
 
 	/**
@@ -106,8 +103,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUser_Name() {
-		return (EAttribute)userEClass.getEStructuralFeatures().get(0);
+	public EAttribute getB_Name() {
+		return (EAttribute)bEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -115,17 +112,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUser__SayHello__User() {
-		return userEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelFactory getModelFactory() {
-		return (ModelFactory)getEFactoryInstance();
+	public BFactory getBFactory() {
+		return (BFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -147,9 +135,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		userEClass = createEClass(USER);
-		createEAttribute(userEClass, USER__NAME);
-		createEOperation(userEClass, USER___SAY_HELLO__USER);
+		bEClass = createEClass(B);
+		createEAttribute(bEClass, B__NAME);
 	}
 
 	/**
@@ -185,14 +172,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUser_Name(), theEcorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getUser__SayHello__User(), theEcorePackage.getEString(), "sayHello", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getUser(), "user", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		initEClass(bEClass, fr.theogiraudet.test.b.B.class, "B", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getB_Name(), theEcorePackage.getEString(), "name", null, 0, 1, fr.theogiraudet.test.b.B.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //ModelPackageImpl
+} //BPackageImpl

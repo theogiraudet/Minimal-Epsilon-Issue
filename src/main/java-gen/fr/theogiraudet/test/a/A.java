@@ -1,40 +1,40 @@
 /**
  */
-package sample.model;
+package fr.theogiraudet.test.a;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>User</b></em>'.
+ * A representation of the model object '<em><b>A</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sample.model.User#getName <em>Name</em>}</li>
+ *   <li>{@link fr.theogiraudet.test.a.A#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see sample.model.ModelPackage#getUser()
+ * @see fr.theogiraudet.test.a.APackage#getA()
  * @model
  * @generated
  */
-public interface User extends EObject {
+public interface A extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see sample.model.ModelPackage#getUser_Name()
+	 * @see fr.theogiraudet.test.a.APackage#getA_Name()
 	 * @model unique="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link sample.model.User#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link fr.theogiraudet.test.a.A#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -43,12 +43,4 @@ public interface User extends EObject {
 	 */
 	void setName(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model unique="false" userUnique="false"
-	 * @generated
-	 */
-	String sayHello(User user);
-
-} // User
+} // A
