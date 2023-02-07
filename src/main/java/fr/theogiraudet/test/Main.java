@@ -1,19 +1,16 @@
 package fr.theogiraudet.test;
 
-import fr.theogiraudet.test.a.A;
-import fr.theogiraudet.test.a.AFactory;
 import fr.theogiraudet.test.a.APackage;
 import fr.theogiraudet.test.b.BPackage;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
 import org.eclipse.epsilon.etl.EtlModule;
-import org.eclipse.epsilon.etl.strategy.DefaultTransformationStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -24,31 +21,41 @@ public class Main {
     private static Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) throws Exception {
 
-        final A model = AFactory.eINSTANCE.createA();
+        EPackage.Registry.INSTANCE.put(APackage.eNS_URI, APackage.eINSTANCE);
+        EPackage.Registry.INSTANCE.put(BPackage.eNS_URI, BPackage.eINSTANCE);
+        Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("a", new XMIResourceFactoryImpl());
+        Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("b", new XMIResourceFactoryImpl());
 
-        ResourceSet rs = new ResourceSetImpl();
-        rs.getPackageRegistry().put(APackage.eNS_URI, APackage.eINSTANCE);
-        rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("a", new EcoreResourceFactoryImpl());
+        // The source model of the transformation
+        EmfModel sourceModel = new EmfModel();
+        sourceModel.setName("A");
+        sourceModel.setReadOnLoad(false); // As the model doesn't exist
+        sourceModel.setStoredOnDisposal(false); // We don't want to store the source model
+        sourceModel.setModelFileUri(URI.createFileURI("foo.a"));
+        sourceModel.setMetamodelUri(APackage.eNS_URI);
+        sourceModel.load();
+        sourceModel.createInstance("A"); // Add an element of type A to the source model
 
-        rs.getPackageRegistry().put(BPackage.eNS_URI, BPackage.eINSTANCE);
-        rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("b", new EcoreResourceFactoryImpl());
-
-        final Resource fooResource = createResource(model, "foo.a", rs);
-
-        final EmfModel fooModel = createModel(fooResource, "foo.a");
-        final EmfModel aMetaModel = createModel(APackage.eINSTANCE.eResource(), "A");
-        final EmfModel bMetaModel = createModel(BPackage.eINSTANCE.eResource(), "B");
-
+        // The target model of the transformation
+        EmfModel targetModel = new EmfModel();
+        targetModel.setName("B");
+        targetModel.setReadOnLoad(false); // As the model doesn't exist
+        targetModel.setStoredOnDisposal(false); // We don't want to store the target model
+        targetModel.setModelFileUri(URI.createFileURI("foo.b"));
+        targetModel.setMetamodelUri(BPackage.eNS_URI);
+        targetModel.load();
 
         EtlModule module = new EtlModule();
         module.getContext().setModule(module);
         module.parse(Main.class.getClassLoader().getResource("transformation/model_transformation.etl"));
-        module.getContext().getModelRepository().addModel(aMetaModel);
-        module.getContext().getModelRepository().addModel(bMetaModel);
-        module.getContext().getModelRepository().addModel(fooModel);
-        module.getContext().setTransformationStrategy(new DefaultTransformationStrategy());
-        var result = module.execute();
-        System.out.println();
+        module.getContext().getModelRepository().addModel(sourceModel);
+        module.getContext().getModelRepository().addModel(targetModel);
+
+        // Execute the transformation
+        module.execute();
+
+        // Print all instances of B in the target model
+        System.out.println(targetModel.getAllOfKind("B"));
     }
 
     public static Resource createResource(EObject model, String name, ResourceSet set) throws IOException {
