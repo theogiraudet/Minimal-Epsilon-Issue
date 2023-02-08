@@ -1,6 +1,6 @@
-rule A2B
+rule A2asaB
     transform a : A!A
     to        b : B!B {
 
-    a.name = b.name;
+    b.name = a.name;
 }

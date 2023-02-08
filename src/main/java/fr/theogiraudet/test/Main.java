@@ -1,5 +1,7 @@
 package fr.theogiraudet.test;
 
+import fr.theogiraudet.test.a.A;
+import fr.theogiraudet.test.a.AFactory;
 import fr.theogiraudet.test.a.APackage;
 import fr.theogiraudet.test.b.BPackage;
 import org.eclipse.emf.common.util.URI;
@@ -7,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.emc.emf.InMemoryEmfModel;
@@ -26,15 +29,14 @@ public class Main {
         Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("a", new XMIResourceFactoryImpl());
         Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("b", new XMIResourceFactoryImpl());
 
-        // The source model of the transformation
-        EmfModel sourceModel = new EmfModel();
-        sourceModel.setName("A");
-        sourceModel.setReadOnLoad(false); // As the model doesn't exist
-        sourceModel.setStoredOnDisposal(false); // We don't want to store the source model
-        sourceModel.setModelFileUri(URI.createFileURI("foo.a"));
-        sourceModel.setMetamodelUri(APackage.eNS_URI);
-        sourceModel.load();
-        sourceModel.createInstance("A"); // Add an element of type A to the source model
+        A instance = AFactory.eINSTANCE.createA();
+        instance.setName("foo2");
+
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getPackageRegistry().put(APackage.eNS_URI, APackage.eINSTANCE);
+        Resource resource = resourceSet.createResource(URI.createFileURI("foo.a"));
+        resource.getContents().add(instance);
+        InMemoryEmfModel sourceModel = new InMemoryEmfModel("A", resource);
 
         // The target model of the transformation
         EmfModel targetModel = new EmfModel();
